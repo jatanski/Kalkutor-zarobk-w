@@ -1,0 +1,1 @@
+Kalkutor zarobków
