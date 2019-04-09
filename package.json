@@ -1,0 +1,25 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Kalkutor zarobków",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatanski/Kalkutor-zarobk-w.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jatanski/Kalkutor-zarobk-w/issues"
+  },
+  "homepage": "https://github.com/jatanski/Kalkutor-zarobk-w#readme",
+  "dependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator naliczeń</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <section class="changes">
+            <form action="" class="changes-form">
+                <legend>Podaj kwotę inwestycji:</legend>
+                <input type="number" class="changes-form__input-invest-amount"
+                    placeholder="Wpisz kwotę inwestycji w PLN" value="1000">
+                <legend>Wpisz cenę Euro:</legend>
+                <input type="number" class="changes-form__input-euro-price" placeholder="Cena Euro" value="4.3">
+                <legend>Wybierz plan inwestycyjny:</legend>
+                <input id="six" type="radio" name="month" value="6 miesięcy" checked>6 miesięcy
+                <input id="twelve" type="radio" name="month" value="12 miesięcy">12 miesięcy
+                <legend>Reinwestujesz?</legend>
+                <input id="yes" type="radio" name="reinvest" value="yes">Tak
+                <input id="no" type="radio" name="reinvest" value="no" checked>Nie
+                <legend>Wpisz przez ile dni chcesz reinwestować środki:</legend>
+                <input type="number" class="changes-form__input-invest-time"
+                    placeholder="Wpisz czas trwania reinwestycji" value="" disabled>
+                <button class="changes-form--button-submit btn btn-primary">Start</button>
+            </form>
+            <section class="result">
+                <p class="result-total-time"></p>
+                <p class="result-total-income"></p>
+            </section>
+        </section>
+    </div>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
