@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    margin: auto;
+    background-color: #222222;
+    color: #aaaaaa;
+    /* font-family: sans-serif; */
+}
+
+.omega-logo {
+    margin-top: 10px;
+    width: 24vh;
+    height: 27vh;
+}
+
+input[type=radio]:checked~label {
+    color: #0DFF92;
+}
+
+.form-control {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    text-align: center;
+}
+
+.changes-form__input-invest-time {
+    margin-bottom: 2vh;
+}

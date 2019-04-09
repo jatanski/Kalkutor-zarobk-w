@@ -11,7 +11,6 @@ const startButton = document.querySelector('.changes-form--button-submit')
 const inputYes = document.getElementById('yes')
 const inputNo = document.getElementById('no')
 
-
 let startInvestBox = new Invest()
 const reInvestBoxArray = []
 
@@ -23,6 +22,9 @@ let euroPrice = 0
 let reinvestTime = 0
 let timeToEnd = 0
 let weekDayIterator = 0
+let totalTime = 0
+
+
 
 const calcInvestEUR = () => {
    const investAmountPLN = inputInvestAmount.value
@@ -30,6 +32,16 @@ const calcInvestEUR = () => {
    euroPrice = inputEuroPrice.value
    startInvestBox.investAmount = investAmountPLN / euroPrice
    startInvestBox.investAmount = Math.round(startInvestBox.investAmount * 100) / 100
+}
+
+const calcEndInvestDay = () => {
+   const endTime = document.querySelector('.result-end-time')
+   const date = new Date()
+   const now = date.getTime()
+   const endInvestMinsec = now + totalTime * 24 * 60 * 60 * 1000
+   const endInvestDay = new Date(endInvestMinsec)
+   endTime.innerText = `Dzień wypłaty środków: ${endInvestDay.getDay()}.${endInvestDay.getMonth()}.${endInvestDay.getYear()}r.`
+
 }
 
 const calcDailyIncome = () => {
@@ -47,14 +59,15 @@ const calcDailyIncome = () => {
 const showResult = () => {
    const showTime = document.querySelector('.result-total-time')
    const showIncome = document.querySelector('.result-total-income')
+
    console.log(reinvestTime, timeToEnd)
-   let totalTime = 0
    const calcTotalTime = () => {
       if (!reinvestTime || parseInt(reinvestTime) + timeToEnd < boxTime && !reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime
       else if (parseInt(reinvestTime) + timeToEnd < boxTime && reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime + reInvestBoxArray[reInvestBoxArray.length - 1].passedTime
       else totalTime = parseInt(reinvestTime) + timeToEnd
    }
    calcTotalTime()
+   calcEndInvestDay()
    const totalIncome = Math.round(balance * euroPrice * 100) / 100
    showTime.innerText = `Ilośc dni od rozpoczęcią inwestycji: ${totalTime}`
    showIncome.innerText = `Stan konta na ostatni dzień: ${totalIncome}`
