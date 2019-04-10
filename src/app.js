@@ -40,8 +40,7 @@ const calcEndInvestDay = () => {
    const now = date.getTime()
    const endInvestMinsec = now + totalTime * 24 * 60 * 60 * 1000
    const endInvestDay = new Date(endInvestMinsec)
-   endTime.innerText = `Dzień wypłaty środków: ${endInvestDay.getDay()}.${endInvestDay.getMonth()}.${endInvestDay.getYear()}r.`
-
+   endTime.innerText = `Dzień wypłaty środków: ${endInvestDay.getDate()}.${endInvestDay.getMonth() + 1}.${endInvestDay.getFullYear()}r.`
 }
 
 const calcDailyIncome = () => {
@@ -68,9 +67,9 @@ const showResult = () => {
    }
    calcTotalTime()
    calcEndInvestDay()
-   const totalIncome = Math.round(balance * euroPrice * 100) / 100
-   showTime.innerText = `Ilośc dni od rozpoczęcią inwestycji: ${totalTime}`
-   showIncome.innerText = `Stan konta na ostatni dzień: ${totalIncome}`
+   const totalIncome = Math.round(balance * euroPrice)
+   showTime.innerText = `Ilośc dni od rozpoczęcią inwestycji: ${totalTime}.`
+   showIncome.innerText = `Stan konta na ostatni dzień: ${totalIncome} PLN.`
 }
 
 const calcBalance = (e) => {
