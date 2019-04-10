@@ -80,10 +80,6 @@ const showResult = () => {
    showRoi.innerText = `Twój zysk wyniesie ${roi}%`
 }
 
-const reset = () => {
-
-}
-
 const calcBalance = (e) => {
    e.preventDefault()
    calcDailyIncome()
@@ -146,12 +142,6 @@ const calcBalance = (e) => {
       }
    }
    showResult()
-}
-
-function one() {
-   if (inputYes.checked) {
-
-   }
 }
 
 function reinvestDisabled() {
