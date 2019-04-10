@@ -13,6 +13,11 @@
 
 <body>
    <div class="wrap">
+      <div class="password">
+         <input type="text" class="password-input">
+         <button class="password-button btn btn-primary">Wyślij</button>
+         <p class="password-info"></p>
+      </div>
       <div class="image">
          <img class="omega-logo" src="./omega.png" alt="omega logo">
       </div>
@@ -33,7 +38,6 @@
                <input id="twelve" class="form-check-input" type="radio" name="month" value="12 miesięcy">
                <label class="form-check-label"> 12 miesięcy </label>
             </div>
-
             <legend>Reinwestujesz?</legend>
             <input id="yes" type="radio" name="reinvest" value="yes"> <label for="">Tak</label>
             <input id="no" type="radio" name="reinvest" value="no"> <label for="">Nie</label>
@@ -46,6 +50,8 @@
             <p class="result-total-time"></p>
             <p class="result-end-time"></p>
             <p class="result-total-income"></p>
+            <p class="result-roi"></p>
+
          </section>
       </section>
    </div>

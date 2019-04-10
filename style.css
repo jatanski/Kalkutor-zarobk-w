@@ -6,6 +6,14 @@ body {
     /* font-family: sans-serif; */
 }
 
+.password {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* position: absolute; */
+    z-index: 1;
+}
+
 .omega-logo {
     margin-top: 10px;
     width: 24vh;

@@ -115,6 +115,9 @@ class Invest {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Invest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Invest */ "./src/Invest.js");
+/* harmony import */ var _password__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./password */ "./src/password.js");
+
+
 
 
 const inputInvestAmount = document.querySelector('.changes-form__input-invest-amount')
@@ -170,21 +173,25 @@ const calcDailyIncome = () => {
    }
 }
 
+const calcTotalTime = () => {
+   if (!reinvestTime || parseInt(reinvestTime) + timeToEnd < boxTime && !reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime
+   else if (parseInt(reinvestTime) + timeToEnd < boxTime && reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime + reInvestBoxArray[reInvestBoxArray.length - 1].passedTime
+   else totalTime = parseInt(reinvestTime) + timeToEnd
+}
+
 const showResult = () => {
    const showTime = document.querySelector('.result-total-time')
    const showIncome = document.querySelector('.result-total-income')
+   const showRoi = document.querySelector('.result-roi')
 
-   console.log(reinvestTime, timeToEnd)
-   const calcTotalTime = () => {
-      if (!reinvestTime || parseInt(reinvestTime) + timeToEnd < boxTime && !reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime
-      else if (parseInt(reinvestTime) + timeToEnd < boxTime && reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime + reInvestBoxArray[reInvestBoxArray.length - 1].passedTime
-      else totalTime = parseInt(reinvestTime) + timeToEnd
-   }
    calcTotalTime()
    calcEndInvestDay()
    const totalIncome = Math.round(balance * euroPrice)
+   const roi = Math.round((totalIncome / inputInvestAmount.value) * 100)
+
    showTime.innerText = `Ilośc dni od rozpoczęcią inwestycji: ${totalTime}.`
    showIncome.innerText = `Stan konta na ostatni dzień: ${totalIncome} PLN.`
+   showRoi.innerText = `Twój zysk wyniesie ${roi}%`
 }
 
 const calcBalance = (e) => {
@@ -267,6 +274,36 @@ function reinvestDisabledOut() {
 startButton.addEventListener('click', calcBalance)
 inputNo.addEventListener('change', reinvestDisabled)
 inputYes.addEventListener('change', reinvestDisabledOut)
+_password__WEBPACK_IMPORTED_MODULE_1__["passwordButton"].addEventListener('click', _password__WEBPACK_IMPORTED_MODULE_1__["checkPassword"])
+
+/***/ }),
+
+/***/ "./src/password.js":
+/*!*************************!*\
+  !*** ./src/password.js ***!
+  \*************************/
+/*! exports provided: passwordButton, checkPassword */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "passwordButton", function() { return passwordButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkPassword", function() { return checkPassword; });
+const passwordSection = document.querySelector('.password')
+const passwordInput = document.querySelector('.password-input')
+const passwordButton = document.querySelector('.password-button')
+const passwordInfo = document.querySelector('.password-info')
+
+const checkPassword = (e) => {
+    e.preventDefault()
+    const password = passwordInput.value
+    if (password == 'Dupa1') {
+        passwordSection.style.display = 'none'
+    } else {
+        passwordInfo.innerText = 'Błędne hasło. Spróbuj ponownie.'
+        passwordInput.value = ''
+    }
+}
 
 /***/ })
 

@@ -2,6 +2,11 @@ import {
    Invest
 } from './Invest'
 
+import {
+   passwordButton,
+   checkPassword
+} from './password'
+
 const inputInvestAmount = document.querySelector('.changes-form__input-invest-amount')
 const inputInvestTime = document.querySelector('.changes-form__input-invest-time')
 const inputEuroPrice = document.querySelector('.changes-form__input-euro-price')
@@ -55,21 +60,25 @@ const calcDailyIncome = () => {
    }
 }
 
+const calcTotalTime = () => {
+   if (!reinvestTime || parseInt(reinvestTime) + timeToEnd < boxTime && !reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime
+   else if (parseInt(reinvestTime) + timeToEnd < boxTime && reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime + reInvestBoxArray[reInvestBoxArray.length - 1].passedTime
+   else totalTime = parseInt(reinvestTime) + timeToEnd
+}
+
 const showResult = () => {
    const showTime = document.querySelector('.result-total-time')
    const showIncome = document.querySelector('.result-total-income')
+   const showRoi = document.querySelector('.result-roi')
 
-   console.log(reinvestTime, timeToEnd)
-   const calcTotalTime = () => {
-      if (!reinvestTime || parseInt(reinvestTime) + timeToEnd < boxTime && !reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime
-      else if (parseInt(reinvestTime) + timeToEnd < boxTime && reInvestBoxArray[reInvestBoxArray.length - 1]) totalTime = boxTime + reInvestBoxArray[reInvestBoxArray.length - 1].passedTime
-      else totalTime = parseInt(reinvestTime) + timeToEnd
-   }
    calcTotalTime()
    calcEndInvestDay()
    const totalIncome = Math.round(balance * euroPrice)
+   const roi = Math.round((totalIncome / inputInvestAmount.value) * 100)
+
    showTime.innerText = `Ilośc dni od rozpoczęcią inwestycji: ${totalTime}.`
    showIncome.innerText = `Stan konta na ostatni dzień: ${totalIncome} PLN.`
+   showRoi.innerText = `Twój zysk wyniesie ${roi}%`
 }
 
 const calcBalance = (e) => {
@@ -152,3 +161,4 @@ function reinvestDisabledOut() {
 startButton.addEventListener('click', calcBalance)
 inputNo.addEventListener('change', reinvestDisabled)
 inputYes.addEventListener('change', reinvestDisabledOut)
+passwordButton.addEventListener('click', checkPassword)
