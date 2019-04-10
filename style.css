@@ -47,6 +47,13 @@ input[type=radio]:checked+label {
     color: white;
 }
 
+.input-text:focus {
+    border: 2px solid #22db49;
+    caret-color: white;
+    box-shadow: 0 0 7px rgba(34, 219, 73, 1);
+    color: white;
+}
+
 .invest-time {
     display: none;
     transition: 0.2s
@@ -64,4 +71,13 @@ input[type=radio]:checked+label {
 
 .changes-form--button-reset {
     margin-left: 5vw;
+}
+
+.result {
+    margin-top: 5vh;
+    font-size: 1.4em;
+}
+
+.form-check-input label {
+    font-size: 1.4em;
 }
