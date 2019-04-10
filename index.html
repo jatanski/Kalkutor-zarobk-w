@@ -12,7 +12,7 @@
 </head>
 
 <body>
-   <div class="wrap">
+   <div onselectstart="window.event.returnValue=false;" class="wrap">
       <div class="password">
          <input type="text" class="password-input">
          <button class="password-button btn btn-primary">Wyślij</button>
@@ -32,19 +32,20 @@
             <legend>Wybierz plan inwestycyjny:</legend>
             <div class="form-check">
                <input id="six" class="form-check-input" type="radio" name="month" value="6 miesięcy" checked>
-               <label class="form-check-label"> 6 miesięcy </label>
+               <label for="six" class="form-check-label"> 6 miesięcy </label>
             </div>
             <div class="form-check">
                <input id="twelve" class="form-check-input" type="radio" name="month" value="12 miesięcy">
-               <label class="form-check-label"> 12 miesięcy </label>
+               <label for="twelve" class="form-check-label"> 12 miesięcy </label>
             </div>
             <legend>Reinwestujesz?</legend>
-            <input id="yes" type="radio" name="reinvest" value="yes"> <label for="">Tak</label>
+            <input id="yes" type="radio" name="reinvest" value="yes" checked> <label for="">Tak</label>
             <input id="no" type="radio" name="reinvest" value="no"> <label for="">Nie</label>
             <legend>Wpisz przez ile dni chcesz reinwestować środki:</legend>
             <input type="number" class="changes-form__input-invest-time form-control"
                placeholder="Wpisz czas trwania reinwestycji" value="" disabled>
             <button class="changes-form--button-submit btn btn-primary">Start</button>
+            <button class="changes-form--button-reset btn btn-primary">Reset</button>
          </form>
          <section class="result">
             <p class="result-total-time"></p>
@@ -54,6 +55,12 @@
 
          </section>
       </section>
+      <section class="table">
+         <table id="table" class="table"></table>
+      </section>
+      <footer class="footer">
+         <p>&copy; 2019 Copyright | Jakub Tanski </p>
+      </footer>
    </div>
    <script src="dist/index.js"></script>
 </body>

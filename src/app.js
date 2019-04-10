@@ -4,6 +4,7 @@ import {
 
 import {
    passwordButton,
+   passwordSection,
    checkPassword
 } from './password'
 
@@ -28,8 +29,6 @@ let reinvestTime = 0
 let timeToEnd = 0
 let weekDayIterator = 0
 let totalTime = 0
-
-
 
 const calcInvestEUR = () => {
    const investAmountPLN = inputInvestAmount.value
@@ -79,6 +78,10 @@ const showResult = () => {
    showTime.innerText = `Ilośc dni od rozpoczęcią inwestycji: ${totalTime}.`
    showIncome.innerText = `Stan konta na ostatni dzień: ${totalIncome} PLN.`
    showRoi.innerText = `Twój zysk wyniesie ${roi}%`
+}
+
+const reset = () => {
+
 }
 
 const calcBalance = (e) => {
@@ -145,6 +148,12 @@ const calcBalance = (e) => {
    showResult()
 }
 
+function one() {
+   if (inputYes.checked) {
+
+   }
+}
+
 function reinvestDisabled() {
    if (this.checked) {
       inputInvestTime.setAttribute('disabled', 'disabled')
@@ -162,3 +171,11 @@ startButton.addEventListener('click', calcBalance)
 inputNo.addEventListener('change', reinvestDisabled)
 inputYes.addEventListener('change', reinvestDisabledOut)
 passwordButton.addEventListener('click', checkPassword)
+document.addEventListener("DOMContentLoaded", function () {
+   const password = JSON.parse(localStorage.getItem('passwordValue'))
+   if (password.value == "Dupa1") passwordSection.style.display = 'none'
+});
+
+document.querySelector('.changes-form--button-reset').addEventListener('click', function () {
+   location.reload()
+})

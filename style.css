@@ -3,7 +3,8 @@ body {
     margin: auto;
     background-color: #222222;
     color: #aaaaaa;
-    /* font-family: sans-serif; */
+    cursor: default;
+    ;
 }
 
 .password {
@@ -20,7 +21,7 @@ body {
     height: 27vh;
 }
 
-input[type=radio]:checked~label {
+input[type=radio]:checked+label {
     color: #0DFF92;
 }
 
@@ -32,6 +33,30 @@ input[type=radio]:checked~label {
     text-align: center;
 }
 
+input[type=text] {
+    width: 220px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid white;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-color: transparent;
+    caret-color: white;
+    color: white;
+}
+
 .changes-form__input-invest-time {
     margin-bottom: 2vh;
+}
+
+.btn {
+    margin-top: 3vh;
+    font-size: 1.4em;
+    padding: 1vh 3vh;
+}
+
+.changes-form--button-reset {
+    margin-left: 5vw;
 }
