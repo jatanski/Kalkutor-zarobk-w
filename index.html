@@ -24,10 +24,10 @@
       <section class="changes">
          <form action="" class="changes-form">
             <legend>Podaj kwotę inwestycji:</legend>
-            <input type="number" class="changes-form__input-invest-amount form-control"
+            <input type="number" class=" input-text changes-form__input-invest-amount form-control"
                placeholder="Wpisz kwotę inwestycji w PLN" value="">
             <legend>Wpisz cenę Euro:</legend>
-            <input type="number" class="changes-form__input-euro-price form-control" placeholder="Cena Euro"
+            <input type="number" class=" input-text changes-form__input-euro-price form-control" placeholder="Cena Euro"
                value="4.3">
             <legend>Wybierz plan inwestycyjny:</legend>
             <div class="form-check">
@@ -39,11 +39,16 @@
                <label for="twelve" class="form-check-label"> 12 miesięcy </label>
             </div>
             <legend>Reinwestujesz?</legend>
-            <input id="yes" type="radio" name="reinvest" value="yes"> <label for="">Tak</label>
-            <input id="no" type="radio" name="reinvest" value="no"> <label for="">Nie</label>
-            <legend>Wpisz przez ile dni chcesz reinwestować środki:</legend>
-            <input type="number" class="changes-form__input-invest-time form-control"
-               placeholder="Wpisz czas trwania reinwestycji" value="" disabled>
+            <div class="container">
+               <input id="yes" type="radio" name="reinvest" value="yes" input-text>
+               <label for="">Tak</label>
+               <input id="no" type="radio" name="reinvest" value="no">
+               <label for="">Nie</label></div>
+            <div class="invest-time">
+               <legend>Wpisz przez ile dni chcesz reinwestować środki:</legend>
+               <input type="number" class="input-text changes-form__input-invest-time form-control"
+                  placeholder="Wpisz czas trwania reinwestycji" value="" disabled>
+            </div>
             <button class="changes-form--button-submit btn btn-primary">Start</button>
             <button class="changes-form--button-reset btn btn-primary">Reset</button>
          </form>

@@ -128,6 +128,7 @@ const inputTwelve = document.getElementById('twelve')
 const startButton = document.querySelector('.changes-form--button-submit')
 const inputYes = document.getElementById('yes')
 const inputNo = document.getElementById('no')
+const investTimeSection = document.querySelector('.invest-time')
 
 let startInvestBox = new _Invest__WEBPACK_IMPORTED_MODULE_0__["Invest"]()
 const reInvestBoxArray = []
@@ -260,12 +261,14 @@ function reinvestDisabled() {
    if (this.checked) {
       inputInvestTime.setAttribute('disabled', 'disabled')
       inputInvestTime.value = ''
+      investTimeSection.style.display = 'none'
    }
 }
 
 function reinvestDisabledOut() {
    if (this.checked) {
       inputInvestTime.removeAttribute('disabled')
+      investTimeSection.style.display = 'block'
    }
 }
 
