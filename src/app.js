@@ -164,11 +164,13 @@ startButton.addEventListener('click', calcBalance)
 inputNo.addEventListener('change', reinvestDisabled)
 inputYes.addEventListener('change', reinvestDisabledOut)
 passwordButton.addEventListener('click', checkPassword)
-document.addEventListener("DOMContentLoaded", function() {
-    const password = JSON.parse(localStorage.getItem('passwordValue'))
-    if (password.value == "Ekipa1") passwordSection.style.display = 'none'
+document.addEventListener("DOMContentLoaded", function () {
+    const password = JSON.parse(localStorage.getItem('passwordValue'));
+    if (password.value) {
+        if (password.value == "Ekipa1") passwordSection.style.display = 'none'
+    }
 });
 
-document.querySelector('.changes-form--button-reset').addEventListener('click', function() {
+document.querySelector('.changes-form--button-reset').addEventListener('click', function () {
     location.reload()
 })
