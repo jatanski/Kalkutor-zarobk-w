@@ -9,7 +9,7 @@ export const checkPassword = (e) => {
         value: passwordInput.value
     }
 
-    if (password.value == 'Dupa1') {
+    if (password.value == 'Ekipa1') {
         passwordSection.style.display = 'none'
         localStorage.setItem('passwordValue', JSON.stringify(password))
     } else {
